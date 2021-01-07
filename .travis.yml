@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hotafrika/react-course -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true hotafrika/react-course npm run test
